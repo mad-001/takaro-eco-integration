@@ -14,8 +14,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2d1b69 100%);
             min-height: 100vh;
         }
         
@@ -23,41 +23,44 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background: white;
+            background: #1e1e1e;
             margin-top: 50px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333;
         }
         
         .header {
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 20px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid #6366f1;
         }
         
         .header h1 {
-            color: #667eea;
+            color: #a855f7;
             font-size: 2.5em;
             margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
         }
         
         .header p {
             font-size: 1.2em;
-            color: #666;
+            color: #a0a0a0;
         }
         
         .download-section {
-            background: #f8f9ff;
+            background: #2a2a2a;
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 30px;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #a855f7;
+            border: 1px solid #444;
         }
         
         .download-button {
             display: inline-block;
-            background: #667eea;
+            background: linear-gradient(45deg, #a855f7, #6366f1);
             color: white;
             padding: 15px 30px;
             text-decoration: none;
@@ -65,37 +68,39 @@
             font-size: 1.1em;
             font-weight: bold;
             margin: 10px 10px 10px 0;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
         }
         
         .download-button:hover {
-            background: #5a6fd8;
+            background: linear-gradient(45deg, #9333ea, #4f46e5);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
         }
         
         .warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
+            background: #2d1f00;
+            border: 1px solid #fbbf24;
             padding: 15px;
             border-radius: 8px;
             margin: 20px 0;
         }
         
         .warning h3 {
-            color: #856404;
+            color: #fbbf24;
             margin-bottom: 10px;
         }
         
         .steps {
-            background: white;
+            background: #2a2a2a;
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
         }
         
         .steps h3 {
-            color: #667eea;
+            color: #a855f7;
             margin-bottom: 15px;
         }
         
@@ -116,49 +121,68 @@
         }
         
         .feature {
-            background: #f8f9ff;
+            background: #2a2a2a;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid #e1e5f2;
+            border: 1px solid #444;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            border-color: #a855f7;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
         }
         
         .feature h4 {
-            color: #667eea;
+            color: #6366f1;
             margin-bottom: 10px;
         }
         
         .discord-section {
-            background: #5865f2;
+            background: linear-gradient(45deg, #5865f2, #7c3aed);
             color: white;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             margin: 30px 0;
+            border: 1px solid #6366f1;
         }
         
         .discord-button {
             display: inline-block;
-            background: white;
-            color: #5865f2;
+            background: #1e1e1e;
+            color: #e0e0e0;
             padding: 12px 25px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
             margin: 10px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
         }
         
         .discord-button:hover {
             transform: translateY(-2px);
+            background: #2a2a2a;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
         }
         
         .footer {
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #666;
+            border-top: 1px solid #444;
+            color: #888;
+        }
+        
+        .footer a {
+            color: #a855f7;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: #c084fc;
         }
         
         @media (max-width: 600px) {
@@ -246,7 +270,7 @@
         <div class="steps">
             <h3>⚙️ Configuration</h3>
             <p>Edit <code>TakaroConfig.json</code> with your server details:</p>
-            <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto;">
+            <pre style="background: #1a1a1a; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; border: 1px solid #444; color: #e0e0e0;">
 {
   "serverName": "YOUR_SERVER_NAME",
   "registrationToken": "YOUR_REGISTRATION_TOKEN",
