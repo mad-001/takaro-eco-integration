@@ -10,15 +10,28 @@ A comprehensive integration plugin that connects Eco game servers to the Takaro 
 - **Chat Integration**: Relay chat messages between Eco and Discord
 - **Player Management**: Kick, ban, and manage players remotely
 
+## Getting Access to Takaro
+
+**⚠️ IMPORTANT: Takaro is currently invite-only!**
+
+Before you can use this plugin, you need to get access to Takaro:
+
+1. **Join the Discord**: https://discord.gg/pwenDRrtnA
+2. **Fill out the survey**: https://forms.gle/53ebt7m92RkmqSvn6
+3. **Request an invite**: Ask in the Discord to be invited to Takaro
+4. **Wait for approval**: The Takaro team will review and invite you
+
 ## Installation
 
 1. **Download Files**
    - Copy `TakaroIntegration.dll` to your Eco server's `Mods/TakaroIntegration/` directory
    - Copy `TakaroConfig.json` to the same location
 
-2. **Configure Takaro**
-   - Register your server at [Takaro Dashboard](https://app.takaro.io)
-   - Update `TakaroConfig.json` with your server's identity token
+2. **Configure Takaro** (after getting invited)
+   - Log into your Takaro dashboard
+   - Click "Add a gameserver" but don't complete the setup
+   - Copy the registration token from this process
+   - Update `TakaroConfig.json` with your server name and registration token
 
 3. **Start Server**
    - Restart your Eco server
@@ -29,10 +42,9 @@ A comprehensive integration plugin that connects Eco game servers to the Takaro 
 Edit `TakaroConfig.json`:
 ```json
 {
-  "WebSocketUrl": "wss://api.takaro.io/ws",
-  "IdentityToken": "your-server-identity-token",
-  "RconPort": 6002,
-  "EnableDebugLogging": true
+  "websocketUrl": "wss://connect.takaro.io/",
+  "serverName": "YOUR_SERVER_NAME", 
+  "registrationToken": "YOUR_REGISTRATION_TOKEN"
 }
 ```
 
