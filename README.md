@@ -28,13 +28,26 @@ Before you can use this plugin, you need to get access to Takaro:
 
 ## Installation
 
-1. **Download Files**
-   - Click the green **"Code"** button at the top of this page
-   - Select **"Download ZIP"**
-   - Extract the downloaded ZIP file
-   - **ONLY copy the `TakaroIntegration` folder** to your Eco server's `Mods/` directory
-   - **⚠️ DO NOT copy the `Source` folder** - it contains .cs files that will cause errors
-   - Final structure should be: `YourEcoServer/Mods/TakaroIntegration/`
+### Option 1: Download Release (Recommended)
+1. **Go to [Releases](https://github.com/mad-001/takaro-eco-integration/releases)**
+2. **Download the latest `TakaroIntegration.zip`** or `TakaroIntegration.tar.gz`
+3. **Extract the archive**
+4. **Copy the `TakaroIntegration` folder** to your Eco server's `Mods/` directory
+
+### Option 2: Download Individual Files
+1. **Navigate to the `TakaroIntegration` folder** above
+2. **Download each file individually**:
+   - Right-click `TakaroIntegration.dll` → Save As
+   - Right-click `TakaroConfig.json` → Save As  
+   - Right-click `README.md` → Save As
+3. **Create a `TakaroIntegration` folder** in your Eco server's `Mods/` directory
+4. **Place all downloaded files** in that folder
+
+### Option 3: Clone Repository (Advanced)
+1. **Clone this repository**: `git clone https://github.com/mad-001/takaro-eco-integration.git`
+2. **Copy only the `TakaroIntegration` folder** to your Eco server's `Mods/` directory
+
+**Final structure should be**: `YourEcoServer/Mods/TakaroIntegration/`
 
 2. **Configure Takaro** (after getting invited)
    - Log into your Takaro dashboard
