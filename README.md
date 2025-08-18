@@ -46,9 +46,12 @@ Before you can use this plugin, you need to get access to Takaro:
 Edit `TakaroConfig.json`:
 ```json
 {
+  "serverName": "SERVER_NAME",
+  "_serverName_help": "Choose your server name, it can be anything you want",
+  "registrationToken": "REGISTRATION_TOKEN",
+  "_registrationToken_help": "In Takaro.io you need an account, click on add a gameserver but do not make a server, copy the registration token.",
   "websocketUrl": "wss://connect.takaro.io/",
-  "serverName": "YOUR_SERVER_NAME", 
-  "registrationToken": "YOUR_REGISTRATION_TOKEN"
+  "enableLogging": false
 }
 ```
 
@@ -65,5 +68,6 @@ If you need to build the plugin yourself:
 - **Issues**: Report bugs via GitHub issues
 
 ## License
+
 
 Open source project for the Takaro community.
