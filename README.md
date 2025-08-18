@@ -24,7 +24,10 @@ Before you can use this plugin, you need to get access to Takaro:
 ## Installation
 
 1. **Download Files**
-   - Download the `TakaroIntegration` folder from this repository
+   - Click the green **"Code"** button at the top of this page
+   - Select **"Download ZIP"**
+   - Extract the downloaded ZIP file
+   - Find the `TakaroIntegration` folder inside the extracted files
    - Copy the entire `TakaroIntegration` folder to your Eco server's `Mods/` directory
    - Final structure should be: `YourEcoServer/Mods/TakaroIntegration/`
 
