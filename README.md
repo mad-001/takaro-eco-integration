@@ -21,14 +21,19 @@ Before you can use this plugin, you need to get access to Takaro:
 3. **Request an invite**: Ask in the Discord to be invited to Takaro
 4. **Wait for approval**: The Takaro team will review and invite you
 
+## Repository Structure
+
+- **`TakaroIntegration/`** - Ready-to-install plugin files (download this folder)
+- **`Source/`** - Source code for building your own version (optional)
+
 ## Installation
 
 1. **Download Files**
    - Click the green **"Code"** button at the top of this page
    - Select **"Download ZIP"**
    - Extract the downloaded ZIP file
-   - Find the `TakaroIntegration` folder inside the extracted files
-   - Copy the entire `TakaroIntegration` folder to your Eco server's `Mods/` directory
+   - **ONLY copy the `TakaroIntegration` folder** to your Eco server's `Mods/` directory
+   - **⚠️ DO NOT copy the `Source` folder** - it contains .cs files that will cause errors
    - Final structure should be: `YourEcoServer/Mods/TakaroIntegration/`
 
 2. **Configure Takaro** (after getting invited)
@@ -60,7 +65,8 @@ Edit `TakaroConfig.json`:
 If you need to build the plugin yourself:
 1. Ensure you have .NET 8.0 SDK installed
 2. Reference the Eco ModKit assemblies
-3. Build the `TakaroIntegrationPlugin.cs` file
+3. Build the `Source/TakaroIntegrationPlugin.cs` file
+4. The source code is provided in the `Source/` folder
 
 ## Support
 
