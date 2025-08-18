@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TakaroIntegration - Download Plugin for Eco Servers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+        
+        .download-section {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .download-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s ease;
+        }
+        
+        .download-button:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .warning h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .steps {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .steps h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .steps ol {
+            padding-left: 20px;
+        }
+        
+        .steps li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e1e5f2;
+        }
+        
+        .feature h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .discord-section {
+            background: #5865f2;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .discord-button {
+            display: inline-block;
+            background: white;
+            color: #5865f2;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .discord-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 TakaroIntegration</h1>
+            <p>Official Takaro plugin for Eco game servers</p>
+        </div>
+        
+        <div class="warning">
+            <h3>⚠️ Important: Takaro is Currently Invite-Only!</h3>
+            <p>Before downloading this plugin, you need access to Takaro. Follow the steps below to get invited.</p>
+        </div>
+        
+        <div class="discord-section">
+            <h3>🔑 Get Access to Takaro</h3>
+            <p>Join our Discord community and request an invite:</p>
+            <a href="https://discord.gg/pwenDRrtnA" class="discord-button">Join Discord</a>
+            <a href="https://forms.gle/53ebt7m92RkmqSvn6" class="discord-button">Fill Survey</a>
+            <p style="margin-top: 15px; font-size: 0.9em;">1. Join Discord → 2. Fill out survey → 3. Request invite → 4. Wait for approval</p>
+        </div>
+        
+        <div class="download-section">
+            <h2>📥 Download Plugin</h2>
+            <p style="margin-bottom: 20px;">Download the latest version of TakaroIntegration for your Eco server:</p>
+            
+            <a href="https://github.com/mad-001/takaro-eco-integration/releases/latest/download/TakaroIntegration.tar.gz" class="download-button">
+                📦 Download TakaroIntegration.tar.gz
+            </a>
+            
+            <a href="https://github.com/mad-001/takaro-eco-integration/releases" class="download-button" style="background: #6c757d;">
+                📋 View All Releases
+            </a>
+            
+            <p style="margin-top: 15px; color: #666; font-size: 0.9em;">
+                <strong>File size:</strong> ~100KB | <strong>Latest version:</strong> v1.0.0
+            </p>
+        </div>
+        
+        <div class="steps">
+            <h3>🛠️ Installation Steps</h3>
+            <ol>
+                <li><strong>Download</strong> the TakaroIntegration.tar.gz file above</li>
+                <li><strong>Extract</strong> the archive to get the TakaroIntegration folder</li>
+                <li><strong>Copy</strong> the TakaroIntegration folder to your Eco server's <code>Mods/</code> directory</li>
+                <li><strong>Edit</strong> <code>Mods/TakaroIntegration/TakaroConfig.json</code> with your server details</li>
+                <li><strong>Restart</strong> your Eco server</li>
+            </ol>
+            <p style="margin-top: 15px; color: #666;">
+                Final structure: <code>YourEcoServer/Mods/TakaroIntegration/</code>
+            </p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h4>🌐 WebSocket Integration</h4>
+                <p>Real-time event streaming to Takaro API for live server monitoring</p>
+            </div>
+            <div class="feature">
+                <h4>🎮 RCON Server</h4>
+                <p>Remote command execution from Takaro dashboard</p>
+            </div>
+            <div class="feature">
+                <h4>👥 Player Tracking</h4>
+                <p>Connect/disconnect events with Steam ID linking</p>
+            </div>
+            <div class="feature">
+                <h4>💬 Discord Integration</h4>
+                <p>Chat relay between Eco server and Discord</p>
+            </div>
+        </div>
+        
+        <div class="steps">
+            <h3>⚙️ Configuration</h3>
+            <p>Edit <code>TakaroConfig.json</code> with your server details:</p>
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto;">
+{
+  "serverName": "YOUR_SERVER_NAME",
+  "registrationToken": "YOUR_REGISTRATION_TOKEN",
+  "websocketUrl": "wss://connect.takaro.io/",
+  "enableLogging": false
+}</pre>
+            <p style="color: #666; font-size: 0.9em;">
+                Get your registration token from the Takaro dashboard: Add gameserver → Copy registration token
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>
+                <a href="https://github.com/mad-001/takaro-eco-integration" style="color: #667eea;">📖 View Source Code</a> | 
+                <a href="https://docs.takaro.io" style="color: #667eea;">📚 Takaro Documentation</a> | 
+                <a href="https://github.com/mad-001/takaro-eco-integration/issues" style="color: #667eea;">🐛 Report Issues</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.8em;">
+                Open source project for the Takaro community
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -26,40 +26,19 @@ Before you can use this plugin, you need to get access to Takaro:
 - **`Source/`** - Source code for building your own version
 - **`TakaroIntegration.tar.gz`** - Pre-packaged plugin files (use releases for latest version)
 
-## Installation
+## 📥 Quick Download
 
-1. **Download the Plugin**
-   - Go to [Releases](https://github.com/mad-001/takaro-eco-integration/releases)
-   - Download the latest `TakaroIntegration.tar.gz` file
+**🌟 [Download Plugin Here](https://mad-001.github.io/takaro-eco-integration/) 🌟**
 
-2. **Install the Plugin**
-   - Extract the downloaded archive
-   - Copy the `TakaroIntegration` folder to your Eco server's `Mods/` directory
-   - Final structure: `YourEcoServer/Mods/TakaroIntegration/`
+Or use the [GitHub Releases](https://github.com/mad-001/takaro-eco-integration/releases) page directly.
 
-3. **Configure Takaro** (after getting invited)
-   - Log into your Takaro dashboard
-   - Click "Add a gameserver" but don't complete the setup
-   - Copy the registration token from this process
-   - Edit `Mods/TakaroIntegration/TakaroConfig.json` with your server name and registration token
+## Features
 
-4. **Start Server**
-   - Restart your Eco server
-   - Check logs for successful Takaro connection
-
-## Configuration
-
-Edit `TakaroConfig.json`:
-```json
-{
-  "serverName": "SERVER_NAME",
-  "_serverName_help": "Choose your server name, it can be anything you want",
-  "registrationToken": "REGISTRATION_TOKEN",
-  "_registrationToken_help": "In Takaro.io you need an account, click on add a gameserver but do not make a server, copy the registration token.",
-  "websocketUrl": "wss://connect.takaro.io/",
-  "enableLogging": false
-}
-```
+- **WebSocket Integration**: Real-time event streaming to Takaro API
+- **RCON Server**: Remote command execution from Takaro dashboard  
+- **Player Tracking**: Connect/disconnect events with Steam ID linking
+- **Chat Integration**: Relay chat messages between Eco and Discord
+- **Player Management**: Kick, ban, and manage players remotely
 
 ## Building from Source
 
