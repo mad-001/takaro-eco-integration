@@ -23,8 +23,8 @@ Before you can use this plugin, you need to get access to Takaro:
 
 ## Repository Structure
 
-- **`TakaroIntegration/`** - Ready-to-install plugin files (download this folder)
-- **`Source/`** - Source code for building your own version (optional)
+- **`Source/`** - Source code for building your own version
+- **`TakaroIntegration.tar.gz`** - Pre-packaged plugin files (use releases for latest version)
 
 ## Installation
 
