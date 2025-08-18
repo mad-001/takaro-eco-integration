@@ -24,15 +24,14 @@ Before you can use this plugin, you need to get access to Takaro:
 ## Installation
 
 1. **Download Files**
-   - Download the `TakaroIntegration` folder from this repository
-   - Copy the entire `TakaroIntegration` folder to your Eco server's `Mods/` directory
-   - Final structure should be: `YourEcoServer/Mods/TakaroIntegration/`
+   - Copy `TakaroIntegration.dll` to your Eco server's `Mods/TakaroIntegration/` directory
+   - Copy `TakaroConfig.json` to the same location
 
 2. **Configure Takaro** (after getting invited)
    - Log into your Takaro dashboard
    - Click "Add a gameserver" but don't complete the setup
    - Copy the registration token from this process
-   - Edit `Mods/TakaroIntegration/TakaroConfig.json` with your server name and registration token
+   - Update `TakaroConfig.json` with your server name and registration token
 
 3. **Start Server**
    - Restart your Eco server
