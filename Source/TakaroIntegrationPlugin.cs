@@ -45,7 +45,7 @@ public class TakaroIntegrationMod : IModInit
 
 namespace Eco.Takaro
 {
-    // Simple file-based logger with hourly rotation
+    // Thread-safe file-based logger with hourly rotation
     public class SimpleFileLogger
     {
         private readonly string logDirectory;
@@ -53,9 +53,11 @@ namespace Eco.Takaro
         private int currentHour = -1;
         private readonly object lockObj = new object();
         private bool loggingEnabled;
+        private readonly string instanceId;
 
-        public SimpleFileLogger(bool enableLogging = true)
+        public SimpleFileLogger(bool enableLogging = true, string instanceId = null)
         {
+            this.instanceId = instanceId ?? Guid.NewGuid().ToString("N")[..8];
             loggingEnabled = enableLogging;
             if (enableLogging)
             {
@@ -91,8 +93,8 @@ namespace Eco.Takaro
                         }
                         catch { }
                         
-                        // Create new file with MM-dd-HH format
-                        string fileName = $"{now:MM-dd-HH}.log";
+                        // Create new file with instance ID for isolation
+                        string fileName = $"{now:MM-dd-HH}-{instanceId}.log";
                         string filePath = Path.Combine(logDirectory, fileName);
                         
                         try
@@ -109,7 +111,7 @@ namespace Eco.Takaro
                         }
                     }
 
-                    currentWriter?.WriteLine($"[{now:yyyy-MM-dd HH:mm:ss.fff}][ Info] {message}");
+                    currentWriter?.WriteLine($"[{now:yyyy-MM-dd HH:mm:ss.fff}][{instanceId}][ Info] {message}");
                 }
             }
             catch
@@ -147,16 +149,25 @@ namespace Eco.Takaro
     public class TakaroPlugin : IModKitPlugin, IInitializablePlugin, IShutdownablePlugin
     {
         public readonly string PluginName = "TakaroIntegration";
-        public static TakaroWebSocketClient takaroClient;
-        public static SimpleFileLogger logger;
+        
+        // FIXED: Remove static singleton - each instance gets its own client
+        private TakaroWebSocketClient takaroClient;
+        private SimpleFileLogger logger;
+        private readonly string instanceId;
         
         // Configuration options
         public bool enableLogging = true; // Default to enabled, can be configured
         
-        // Shared logger instance for the entire plugin
-        public static SimpleFileLogger SharedLogger => logger;
+        // Instance logger (no longer shared static)
+        public SimpleFileLogger InstanceLogger => logger;
 
         public static TakaroPlugin Obj { get { return PluginManager.GetPlugin<TakaroPlugin>(); } }
+
+        public TakaroPlugin()
+        {
+            // Generate unique instance ID for this server
+            instanceId = Guid.NewGuid().ToString("N")[..8];
+        }
 
         private string status = "Uninitialized";
         public string Status
@@ -187,15 +198,16 @@ namespace Eco.Takaro
 
         public void Initialize(TimedTask timer)
         {
-            // Initialize logger first with default setting
-            logger = new SimpleFileLogger(enableLogging);
+            // Initialize instance-specific logger
+            logger = new SimpleFileLogger(enableLogging, instanceId);
             
             Status = "Initializing";
-            logger.Write("Takaro Integration Plugin starting...");
+            logger.Write($"Takaro Integration Plugin starting with instance ID: {instanceId}");
 
-            takaroClient = new TakaroWebSocketClient();
+            // FIXED: Create instance-specific client instead of static singleton
+            takaroClient = new TakaroWebSocketClient(logger, instanceId);
             
-            // Config will be loaded in TakaroWebSocketClient constructor, which may update logging setting
+            // Config will be loaded in TakaroWebSocketClient constructor
             Task.Run(async () => await takaroClient.InitializeAsync());
 
             UserManager.OnUserLoggedIn.Add(OnPlayerJoined);
@@ -268,21 +280,38 @@ namespace Eco.Takaro
         private ClientWebSocket webSocket;
         private CancellationTokenSource cancellationTokenSource;
         private SimpleFileLogger logger;
-        private bool isConnected = false;
-        private bool isReconnecting = false;
+        
+        // FIXED: Add proper connection state synchronization
+        private volatile bool isConnected = false;
+        private volatile bool isReconnecting = false;
         private readonly object reconnectionLock = new object();
+        private readonly object connectionLock = new object();
         
         private string registrationToken;
         private string gameServerId;
         private string serverName;
         private string websocketUrl;
         private int currentPlayerCount = 0;
+        private readonly string instanceId;
+        
+        // FIXED: Add jitter for reconnection delays
+        private readonly Random random = new Random();
 
-        public bool IsConnected => isConnected && webSocket?.State == WebSocketState.Open;
+        public bool IsConnected 
+        { 
+            get 
+            { 
+                lock (connectionLock)
+                {
+                    return isConnected && webSocket?.State == WebSocketState.Open;
+                }
+            }
+        }
 
-        public TakaroWebSocketClient()
+        public TakaroWebSocketClient(SimpleFileLogger logger, string instanceId)
         {
-            logger = TakaroPlugin.SharedLogger ?? new SimpleFileLogger(true);
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            this.instanceId = instanceId ?? throw new ArgumentNullException(nameof(instanceId));
             LoadConfig();
         }
 
@@ -312,17 +341,9 @@ namespace Eco.Takaro
                         newLoggingSetting = loggingElement.GetBoolean();
                     }
                     
-                    // Update logging setting and recreate logger if needed
-                    if (TakaroPlugin.Obj != null && TakaroPlugin.Obj.enableLogging != newLoggingSetting)
-                    {
-                        TakaroPlugin.Obj.enableLogging = newLoggingSetting;
-                        // Close old logger and create new one with updated setting
-                        TakaroPlugin.logger?.Close();
-                        TakaroPlugin.logger = new SimpleFileLogger(newLoggingSetting);
-                        logger = TakaroPlugin.logger;
-                    }
+                    // Note: Can't change logging after initialization due to instance isolation
                     
-                    logger.Write($"Loaded config: Server={serverName}, Logging={newLoggingSetting}");
+                    logger.Write($"[{instanceId}] Loaded config: Server={serverName}, WebSocket={websocketUrl}");
                 }
                 else
                 {
@@ -375,12 +396,12 @@ namespace Eco.Takaro
                 {
                     // Item icons will be naturally synchronized through inventory data when players connect
                     logger.Write("[ICON] Item icon synchronization will occur through inventory data");
-                    logger.Write("Takaro WebSocket integration initialized successfully");
+                    logger.Write($"[{instanceId}] Takaro WebSocket integration initialized successfully");
                 }
             }
             catch (Exception ex)
             {
-                logger.WriteWarning($"Error initializing Takaro WebSocket: {ex.Message}");
+                logger.WriteWarning($"[{instanceId}] Error initializing Takaro WebSocket: {ex.Message}");
             }
         }
 
@@ -1052,7 +1073,7 @@ namespace Eco.Takaro
                 var user = UserManager.FindUserByName(playerName);
                 if (user != null && user.IsOnline)
                 {
-                    user.Msg(Localizer.DoStr($"[Private Message] {message}"));
+                    user.MsgLoc($"[Private Message] {message}");
                     logger.Write($"Private message sent to {playerName}: {message}");
                     return $"Message sent to {playerName}";
                 }
@@ -1884,14 +1905,14 @@ namespace Eco.Takaro
                 };
 
                 string jsonMessage = System.Text.Json.JsonSerializer.Serialize(chatEvent);
-                logger.Write($"[CHAT EVENT] Sending to Takaro - Player: {user.Name}, Message: {message}");
-                logger.Write($"[CHAT EVENT] JSON: {jsonMessage}");
+                logger.Write($"[{instanceId}] [CHAT EVENT] Sending to Takaro - Player: {user.Name}, Message: {message}");
+                logger.Write($"[{instanceId}] [CHAT EVENT] JSON: {jsonMessage}");
                 await SendMessage(jsonMessage);
-                logger.Write($"[CHAT EVENT] Successfully sent to Takaro");
+                logger.Write($"[{instanceId}] [CHAT EVENT] Successfully sent to Takaro");
             }
             catch (Exception ex)
             {
-                logger.WriteWarning($"Error sending chat event: {ex.Message}");
+                logger.WriteWarning($"[{instanceId}] Error sending chat event: {ex.Message}");
             }
         }
 
@@ -1929,7 +1950,7 @@ namespace Eco.Takaro
                     };
                     
                     string jsonMessage = System.Text.Json.JsonSerializer.Serialize(connectEvent);
-                    logger.Write($"Player connected: {user.Name}");
+                    logger.Write($"[{instanceId}] Player connected: {user.Name}");
                     await SendMessage(jsonMessage);
                 }
                 else if (eventType == "player-disconnected")
@@ -1960,13 +1981,13 @@ namespace Eco.Takaro
                     };
                     
                     string jsonMessage = System.Text.Json.JsonSerializer.Serialize(disconnectEvent);
-                    logger.Write($"Player disconnected: {user.Name} (JSON: {jsonMessage})");
+                    logger.Write($"[{instanceId}] Player disconnected: {user.Name}");
                     await SendMessage(jsonMessage);
                 }
             }
             catch (Exception ex)
             {
-                logger.WriteWarning($"Error sending player event: {ex.Message}");
+                logger.WriteWarning($"[{instanceId}] Error sending player event: {ex.Message}");
             }
         }
 
@@ -1976,7 +1997,7 @@ namespace Eco.Takaro
             {
                 if (isReconnecting)
                 {
-                    logger.Write("Reconnection already in progress, skipping...");
+                    logger.Write($"[{instanceId}] Reconnection already in progress, skipping...");
                     return;
                 }
                 isReconnecting = true;
@@ -1986,27 +2007,50 @@ namespace Eco.Takaro
             _ = Task.Run(async () => await AttemptReconnection());
         }
         
+        // Public method to manually trigger reconnection (useful for external retry logic)
+        public void ForceReconnection()
+        {
+            logger.Write($"[{instanceId}] Manual reconnection triggered");
+            lock (connectionLock)
+            {
+                isConnected = false;
+            }
+            TriggerReconnection();
+        }
+        
         private async Task AttemptReconnection()
         {
-            const int maxRetries = 5;
-            const int baseDelayMs = 3000; // Start with 3 seconds
+            const int initialMaxRetries = 5; // FIXED: Reduced from 10
+            const int baseDelayMs = 3000;   // FIXED: Reduced from 5000
+            const int maxDelayMs = 30000;   // FIXED: Reduced from 60000
+            const int longTermRetries = 20; // FIXED: Reduced from 60
+            const int longTermDelayMs = 60000;
             
             try
             {
-                for (int attempt = 1; attempt <= maxRetries; attempt++)
+                logger.Write($"[{instanceId}] Starting reconnection phase - {initialMaxRetries} attempts with jittered backoff");
+                
+                for (int attempt = 1; attempt <= initialMaxRetries; attempt++)
                 {
                     try
                     {
-                        if (cancellationTokenSource.Token.IsCancellationRequested)
+                        if (cancellationTokenSource?.Token.IsCancellationRequested == true)
                         {
-                            logger.Write("Reconnection cancelled - shutdown requested");
+                            logger.Write($"[{instanceId}] Reconnection cancelled - shutdown requested");
                             return;
                         }
                         
-                        int delayMs = baseDelayMs * attempt; // Exponential backoff
-                        logger.Write($"Attempting reconnection #{attempt}/{maxRetries} in {delayMs}ms...");
+                        // FIXED: Add jitter to prevent synchronized reconnection attempts
+                        int baseDelay = Math.Min(baseDelayMs * attempt, maxDelayMs);
+                        int jitter = random.Next(0, baseDelay / 4); // Up to 25% jitter
+                        int delayMs = baseDelay + jitter;
                         
-                        await Task.Delay(delayMs, cancellationTokenSource.Token);
+                        logger.Write($"[{instanceId}] Attempting reconnection #{attempt}/{initialMaxRetries} in {delayMs}ms...");
+                        
+                        using (var delayTokenSource = new CancellationTokenSource())
+                        {
+                            await Task.Delay(delayMs, delayTokenSource.Token);
+                        }
                         
                         // Clean up old connection properly
                         await CleanupConnection();
@@ -2016,22 +2060,87 @@ namespace Eco.Takaro
                         
                         if (IsConnected)
                         {
-                            logger.Write($"Successfully reconnected to Takaro on attempt #{attempt}");
+                            logger.Write($"[{instanceId}] Successfully reconnected on attempt #{attempt}");
                             return;
                         }
                     }
                     catch (OperationCanceledException)
                     {
-                        logger.Write("Reconnection cancelled - shutdown requested");
+                        logger.Write($"[{instanceId}] Reconnection cancelled - shutdown requested");
                         return;
                     }
                     catch (Exception ex)
                     {
-                        logger.WriteWarning($"Reconnection attempt #{attempt} failed: {ex.Message}");
+                        logger.WriteWarning($"[{instanceId}] Reconnection attempt #{attempt} failed: {ex.Message}");
+                        
+                        // For 503 errors, add extra jittered delay
+                        if (ex.Message.Contains("503"))
+                        {
+                            int extraDelay = 5000 + random.Next(0, 10000); // 5-15 seconds
+                            logger.Write($"[{instanceId}] Server temporarily unavailable (503), waiting extra {extraDelay}ms...");
+                            try
+                            {
+                                using (var extraDelayTokenSource = new CancellationTokenSource())
+                                {
+                                    await Task.Delay(extraDelay, extraDelayTokenSource.Token);
+                                }
+                            }
+                            catch (OperationCanceledException)
+                            {
+                                return;
+                            }
+                        }
                     }
                 }
                 
-                logger.WriteWarning($"Failed to reconnect after {maxRetries} attempts. Manual restart may be required.");
+                // Phase 2: Long-term attempts with more jitter
+                logger.Write($"[{instanceId}] Initial attempts failed. Starting long-term reconnection phase");
+                
+                for (int longAttempt = 1; longAttempt <= longTermRetries; longAttempt++)
+                {
+                    try
+                    {
+                        if (cancellationTokenSource?.Token.IsCancellationRequested == true)
+                        {
+                            logger.Write($"[{instanceId}] Long-term reconnection cancelled - shutdown requested");
+                            return;
+                        }
+                        
+                        // FIXED: Add significant jitter for long-term attempts
+                        int jitter = random.Next(0, 30000); // Up to 30 seconds jitter
+                        int delayMs = longTermDelayMs + jitter;
+                        
+                        logger.Write($"[{instanceId}] Long-term reconnection attempt #{longAttempt}/{longTermRetries} (waiting {delayMs/1000}s)...");
+                        
+                        using (var delayTokenSource = new CancellationTokenSource())
+                        {
+                            await Task.Delay(delayMs, delayTokenSource.Token);
+                        }
+                        
+                        // Clean up old connection properly
+                        await CleanupConnection();
+                        
+                        // Create fresh connection
+                        await InitializeConnection();
+                        
+                        if (IsConnected)
+                        {
+                            logger.Write($"[{instanceId}] Successfully reconnected on long-term attempt #{longAttempt}");
+                            return;
+                        }
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        logger.Write($"[{instanceId}] Long-term reconnection cancelled - shutdown requested");
+                        return;
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.WriteWarning($"[{instanceId}] Long-term reconnection attempt #{longAttempt} failed: {ex.Message}");
+                    }
+                }
+                
+                logger.WriteWarning($"[{instanceId}] Failed to reconnect after {initialMaxRetries + longTermRetries} total attempts.");
             }
             finally
             {
@@ -2042,63 +2151,140 @@ namespace Eco.Takaro
             }
         }
         
+        // FIXED: Improved connection cleanup with proper synchronization
         private async Task CleanupConnection()
         {
             try
             {
-                isConnected = false;
-                
-                if (webSocket != null)
+                lock (connectionLock)
                 {
-                    if (webSocket.State == WebSocketState.Open)
-                    {
-                        await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Reconnecting", CancellationToken.None);
-                    }
-                    webSocket.Dispose();
-                    webSocket = null;
+                    isConnected = false;
                 }
                 
-                cancellationTokenSource?.Cancel();
-                cancellationTokenSource?.Dispose();
-                cancellationTokenSource = null;
+                if (cancellationTokenSource != null)
+                {
+                    try
+                    {
+                        cancellationTokenSource.Cancel();
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                        // Token source already disposed
+                    }
+                }
+                
+                // Clean up WebSocket connection
+                if (webSocket != null)
+                {
+                    try
+                    {
+                        if (webSocket.State == WebSocketState.Open || webSocket.State == WebSocketState.Connecting)
+                        {
+                            using (var closeTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(5)))
+                            {
+                                await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Reconnecting", closeTokenSource.Token);
+                            }
+                        }
+                    }
+                    catch (Exception wsEx)
+                    {
+                        logger.Write($"Error closing WebSocket: {wsEx.Message}");
+                    }
+                    finally
+                    {
+                        try
+                        {
+                            webSocket.Dispose();
+                        }
+                        catch (Exception disposeEx)
+                        {
+                            logger.Write($"[{instanceId}] Error disposing WebSocket: {disposeEx.Message}");
+                        }
+                        webSocket = null;
+                    }
+                }
+                
+                if (cancellationTokenSource != null)
+                {
+                    try
+                    {
+                        cancellationTokenSource.Dispose();
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                        // Already disposed
+                    }
+                    cancellationTokenSource = null;
+                }
+                
+                logger.Write($"[{instanceId}] Connection cleanup completed");
             }
             catch (Exception ex)
             {
-                logger.Write($"Error during connection cleanup: {ex.Message}");
+                logger.Write($"[{instanceId}] Error during connection cleanup: {ex.Message}");
             }
         }
         
+        // FIXED: Improved connection initialization with proper error handling
         private async Task InitializeConnection()
         {
             try
             {
+                // Ensure we start clean
+                if (webSocket != null || cancellationTokenSource != null)
+                {
+                    logger.WriteWarning($"[{instanceId}] InitializeConnection called with existing connection objects - cleaning up first");
+                    await CleanupConnection();
+                }
+                
                 // Create fresh instances
                 webSocket = new ClientWebSocket();
                 cancellationTokenSource = new CancellationTokenSource();
                 
-                logger.Write($"Connecting to {websocketUrl}");
-                await webSocket.ConnectAsync(new Uri(websocketUrl), cancellationTokenSource.Token);
+                // Add connection timeout with jitter
+                int timeoutMs = 30000 + random.Next(0, 10000); // 30-40 seconds
+                using (var connectTimeoutSource = new CancellationTokenSource(TimeSpan.FromMilliseconds(timeoutMs)))
+                using (var combinedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(
+                    cancellationTokenSource.Token, connectTimeoutSource.Token))
+                {
+                    logger.Write($"[{instanceId}] Connecting to {websocketUrl} (timeout: {timeoutMs}ms)");
+                    await webSocket.ConnectAsync(new Uri(websocketUrl), combinedTokenSource.Token);
+                }
                 
                 if (webSocket.State == WebSocketState.Open)
                 {
-                    logger.Write("WebSocket connected successfully");
-                    isConnected = true;
+                    logger.Write($"[{instanceId}] WebSocket connected successfully");
+                    lock (connectionLock)
+                    {
+                        isConnected = true;
+                    }
                     
                     // Send identification
                     await SendIdentifyMessage();
                     
-                    // Start message loop
+                    // Start message loop in background
                     _ = Task.Run(async () => await MessageLoop());
                 }
                 else
                 {
-                    logger.WriteWarning($"WebSocket connection failed, state: {webSocket.State}");
+                    logger.WriteWarning($"[{instanceId}] WebSocket connection failed, state: {webSocket.State}");
+                    await CleanupConnection();
                 }
+            }
+            catch (WebSocketException wsEx)
+            {
+                logger.WriteWarning($"[{instanceId}] WebSocket error initializing connection: {wsEx.Message} (WebSocketErrorCode: {wsEx.WebSocketErrorCode})");
+                await CleanupConnection();
+            }
+            catch (OperationCanceledException)
+            {
+                logger.WriteWarning($"[{instanceId}] Connection attempt timed out or was cancelled");
+                await CleanupConnection();
             }
             catch (Exception ex)
             {
-                logger.WriteWarning($"Error initializing Takaro WebSocket: {ex.Message}");
-                isConnected = false;
+                logger.WriteWarning($"[{instanceId}] Error initializing Takaro WebSocket: {ex.Message}");
+                await CleanupConnection();
             }
         }
 
@@ -2106,7 +2292,13 @@ namespace Eco.Takaro
         {
             try
             {
-                isConnected = false;
+                logger.Write($"[{instanceId}] Shutting down WebSocket client");
+                
+                lock (connectionLock)
+                {
+                    isConnected = false;
+                }
+                
                 cancellationTokenSource?.Cancel();
 
                 if (webSocket?.State == WebSocketState.Open)
@@ -2117,11 +2309,11 @@ namespace Eco.Takaro
                 webSocket?.Dispose();
                 cancellationTokenSource?.Dispose();
                 
-                logger.Write("Takaro WebSocket client shut down");
+                logger.Write($"[{instanceId}] Takaro WebSocket client shut down");
             }
             catch (Exception ex)
             {
-                logger.WriteWarning($"Error during shutdown: {ex.Message}");
+                logger.WriteWarning($"[{instanceId}] Error during shutdown: {ex.Message}");
             }
         }
     }

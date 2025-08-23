@@ -1,5 +1,7 @@
 # Takaro Integration for Eco Servers
 
+**Current Version: v1.1.0** - [📋 Changelog](CHANGELOG.md)
+
 A comprehensive integration plugin that connects Eco game servers to the Takaro platform, providing server management, player tracking, and real-time communication capabilities.
 
 ## Features
@@ -21,10 +23,15 @@ Before you can use this plugin, you need to get access to Takaro:
 3. **Request an invite**: Ask in the Discord to be invited to Takaro
 4. **Wait for approval**: The Takaro team will review and invite you
 
+## 🎯 Latest Update - v1.1.0
+
+**CRITICAL STABILITY FIX**: This version resolves the issue where multiple Eco servers would disconnect from Takaro simultaneously. Each server now has independent WebSocket connections with jittered reconnection delays.
+
 ## Repository Structure
 
-- **`Source/`** - Source code for building your own version
-- **`TakaroIntegration.tar.gz`** - Pre-packaged plugin files (use releases for latest version)
+- **`Source/`** - Source code for building your own version (includes .csproj file)
+- **`TakaroIntegration/`** - Ready-to-use plugin files
+- **`CHANGELOG.md`** - Version history and detailed changes
 
 ## 📥 Quick Download
 

@@ -1,0 +1,2104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StrangeCloud.Service.Client.CSharp</name>
+    </assembly>
+    <members>
+        <member name="M:StrangeCloud.Service.Client.AdminClient.UploadSteamKeysAsync(StrangeCloud.Service.Client.Contracts.FileParameter,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AdminClient.UploadSteamKeysAsync(StrangeCloud.Service.Client.Contracts.FileParameter,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AdminClient.GetUnusedSteamKeysCountAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AdminClient.GetUnusedSteamKeysCountAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.AuthenticateUserFromAdminAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.Nullable{System.Guid},System.String)">
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.AuthenticateUserFromAdminAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.AuthenticateSLGUserAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.String)">
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.AuthenticateSLGUserAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.AuthenticateSteamUserAsync(System.String,System.String)">
+            <summary>
+            Authenticates a Steam user using their steam ticket and returning the linked user, creating a new user if required.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.AuthenticateSteamUserAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authenticates a Steam user using their steam ticket and returning the linked user, creating a new user if required.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.RefreshTokenAsync(System.String,System.String)">
+            <summary>
+            Deprecated. Used for backward compatibility.
+            <br/>Try to re-authenticate a user using their refresh token. Returns 403 if invalid.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.RefreshTokenAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Deprecated. Used for backward compatibility.
+            <br/>Try to re-authenticate a user using their refresh token. Returns 403 if invalid.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.GenerateAuthTokenAsync(System.String)">
+            <summary>
+            Get user login token which can be used to login as that user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.GenerateAuthTokenAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Get user login token which can be used to login as that user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.RevokeAllTokensAsync(System.String)">
+            <summary>
+            Invalidate all given auth tokens.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.RevokeAllTokensAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Invalidate all given auth tokens.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.GetWorldTicketAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.GetWorldTicketAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.VerifyWorldTicketAsync(System.String,System.Nullable{System.Guid},System.String)">
+            <summary>
+            Verifies a privately signed JWT token instance.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.VerifyWorldTicketAsync(System.String,System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Verifies a privately signed JWT token instance.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.GetUserAuthTokenAsync(System.Nullable{System.Guid},System.String)">
+            <summary>
+            Allows an admin to retrieve a login token for a given user for testing purposes..
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AuthenticationClient.GetUserAuthTokenAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Allows an admin to retrieve a login token for a given user for testing purposes..
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.ClearAllFlagsAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.ClearAllFlagsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.FlagReportAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.FlagReportAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.FlagSelfAsync(System.Nullable{System.Guid},System.String,System.Nullable{System.Boolean},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.FlagSelfAsync(System.Nullable{System.Guid},System.String,System.Nullable{System.Boolean},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.FlagServerAsync(System.String,System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.FlagsClient.FlagServerAsync(System.String,System.String,System.Nullable{System.Boolean},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.GrantInvitesAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.GrantInvitesAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.GetInvitesAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.GetInvitesAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.RedeemInviteAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.RedeemInviteAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.RemoveInviteAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.RemoveInviteAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.RemoveInvitesByCountAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.RemoveInvitesByCountAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.BuyInvitesWithCreditsAsync(System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.InvitesClient.BuyInvitesWithCreditsAsync(System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.GetMarketplaceItemsAsync(System.String)">
+            <summary>
+            Returns all marketplace items in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.GetMarketplaceItemsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns all marketplace items in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.GetGlobalDataAsync(System.String)">
+            <summary>
+            Returns the global data stored in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.GetGlobalDataAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the global data stored in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.PutStoreItemsAdminAsync(System.String,System.String)">
+            <summary>
+            Assign the store data from a csv copy-pasted in, sent as text/plain content type. Must include first row of header names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.PutStoreItemsAdminAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Assign the store data from a csv copy-pasted in, sent as text/plain content type. Must include first row of header names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.BuyAsAdminAsync(System.String,System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.BuyAsAdminAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.TransferCreditsAsync(System.Nullable{System.Guid},System.Nullable{System.Single},System.String)">
+            <summary>
+            Perform a direct transfer between parties, splitting X% along standard division pattern.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.TransferCreditsAsync(System.Nullable{System.Guid},System.Nullable{System.Single},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Perform a direct transfer between parties, splitting X% along standard division pattern.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.StartStorePurchaseAsync(System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Purchases the given marketplace item, with a multiplier if they want to by multiple of that pack (since marketplaceitem contains a quantity).
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.StartStorePurchaseAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Purchases the given marketplace item, with a multiplier if they want to by multiple of that pack (since marketplaceitem contains a quantity).
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.CompleteStorePurchaseAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.CompleteStorePurchaseAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.RegisterItemsAsync(System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.MarketplaceItemRegistration},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.RegisterItemsAsync(System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.MarketplaceItemRegistration},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.BuyThirdPartyHostingAsync(System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.MarketplaceClient.BuyThirdPartyHostingAsync(System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.PasswordResetClient.RequestResetAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.PasswordResetClient.RequestResetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.PasswordResetClient.ResetPasswordAsync(StrangeCloud.Service.Client.Contracts.UsertokenAndPassword,System.String)">
+            <summary>
+            Reset the password, also verifies email address.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.PasswordResetClient.ResetPasswordAsync(StrangeCloud.Service.Client.Contracts.UsertokenAndPassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Reset the password, also verifies email address.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.PasswordResetClient.AdminChangePasswordAsync(StrangeCloud.Service.Client.Contracts.AdminChangePassword,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.PasswordResetClient.AdminChangePasswordAsync(StrangeCloud.Service.Client.Contracts.AdminChangePassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.SetUsernameAndPasswordAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String)">
+            <summary>
+            Can be called by users who have only logged in via steam
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.SetUsernameAndPasswordAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Can be called by users who have only logged in via steam
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.RegisterUserAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String)">
+            <summary>
+            Register a new user and authenticates them.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.RegisterUserAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Register a new user and authenticates them.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.RequestVerifyEmailAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.RequestVerifyEmailAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.VerifyEmailAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.VerifyEmailAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.RegisterWithSteamAsync(System.String,System.String)">
+            <summary>
+            Authorize a user with Steam OpenID.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.RegistrationClient.RegisterWithSteamAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authorize a user with Steam OpenID.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.SetAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String)">
+            <summary>
+            Set an existing or new user as the passed value.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.SetAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Set an existing or new user as the passed value.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetAccountAsync(System.String)">
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetAccountAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.SetAvatarDataAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.SetAvatarDataAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetUserSteamStatusAsync(System.String)">
+            <summary>
+            Returns the current authed user's status in steam (trusted, locked or normal). Value can be any in SteamUserStatus enum.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetUserSteamStatusAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the current authed user's status in steam (trusted, locked or normal). Value can be any in SteamUserStatus enum.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.ClearNotificationsAsync(System.String)">
+            <summary>
+            Clear the user notifications.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.ClearNotificationsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Clear the user notifications.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetTransactionSummariesAsync(System.String)">
+            <summary>
+            DEPRECATED. Returns transaction summarys.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetTransactionSummariesAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            DEPRECATED. Returns transaction summarys.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetAllTransactionSummariesAsync(System.String)">
+            <summary>
+            DEPRECATED. Admin-only endpoint for querying a sum of all transactions for a given date range.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GetAllTransactionSummariesAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            DEPRECATED. Admin-only endpoint for querying a sum of all transactions for a given date range.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GrantAchievementsAsync(System.Nullable{System.Guid},System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.StrangeAchievement},System.String)">
+            <summary>
+            Grant a list of achievements to a given user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GrantAchievementsAsync(System.Nullable{System.Guid},System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.StrangeAchievement},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Grant a list of achievements to a given user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GrantAchievementAsync(System.Nullable{System.Guid},StrangeCloud.Service.Client.Contracts.StrangeAchievement,System.String)">
+            <summary>
+            Grants an achievement to the user with the given name and description.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.GrantAchievementAsync(System.Nullable{System.Guid},StrangeCloud.Service.Client.Contracts.StrangeAchievement,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Grants an achievement to the user with the given name and description.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.TwitchCallbackAsync(System.String,System.String)">
+            <summary>
+            Twitch callback endpoint to handle fetching twitch information.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.TwitchCallbackAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Twitch callback endpoint to handle fetching twitch information.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.HeartbeatAsync(System.Nullable{System.Guid},System.String)">
+            <summary>
+            Called during gameplay to say they are online at the given server, every 10 minutes.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.HeartbeatAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Called during gameplay to say they are online at the given server, every 10 minutes.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.AddSteamToSlgUserAsync(System.String,System.String)">
+            <summary>
+            Adds a steam account to the user. If the user owns Eco, it will attempt to grant them a key on steam.
+            </summary>
+            <param name="token">The Access token provided by steam after redirect to be used to redeem a key and check steam information</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.UserAccountClient.AddSteamToSlgUserAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Adds a steam account to the user. If the user owns Eco, it will attempt to grant them a key on steam.
+            </summary>
+            <param name="token">The Access token provided by steam after redirect to be used to redeem a key and check steam information</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.VoiceClient.VivoxLoginTokenAsync(System.String,System.String)">
+            <summary>
+            Generate the Vivox login auth token.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.VoiceClient.VivoxLoginTokenAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Generate the Vivox login auth token.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.VoiceClient.VivoxJoinChannelTokenAsync(System.String,System.String,System.String)">
+            <summary>
+            Join the given Vivox channel by channel name.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.VoiceClient.VivoxJoinChannelTokenAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Join the given Vivox channel by channel name.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.GetWorldAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.GetWorldAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.GetActiveWorldsAsync(System.String)">
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.  Caches every 60 seconds, and returns a compressed list of StrangeCloudWorldData.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.GetActiveWorldsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.  Caches every 60 seconds, and returns a compressed list of StrangeCloudWorldData.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.QuickUpdateAsync(System.Guid,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Trigger an update to keep the server alive, without updating any other info.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.QuickUpdateAsync(System.Guid,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Trigger an update to keep the server alive, without updating any other info.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.ServerHeartbeatAsync(StrangeCloud.Service.Client.Contracts.ServerHeartbeatData,System.String)">
+            <summary>
+            Register or update a server.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.ServerHeartbeatAsync(StrangeCloud.Service.Client.Contracts.ServerHeartbeatData,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Register or update a server.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.GetModsAsync(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Returns any mods in the db matching the given names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.GetModsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns any mods in the db matching the given names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.AddOrUpdateAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String)">
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.WorldsClient.AddOrUpdateAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.XsollaClient.GeneratePaymentTokenAsync(StrangeCloud.Service.Client.Contracts.PaymentRequest,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.XsollaClient.GeneratePaymentTokenAsync(StrangeCloud.Service.Client.Contracts.PaymentRequest,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.XsollaClient.HandleWebhookAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.XsollaClient.HandleWebhookAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetUserAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetUserAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutUserAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutUserAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteUserAccountAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteUserAccountAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetUserAccount2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetUserAccount2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetUserAccountSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetUserAccountSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetWorldsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetWorldsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutWorldsAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutWorldsAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteWorldsAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteWorldsAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetWorlds2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetWorlds2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetWorldsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetWorldsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetTransactionsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetTransactionsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutTransactionsAsync(StrangeCloud.Service.Client.Contracts.MarketplaceTransaction,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutTransactionsAsync(StrangeCloud.Service.Client.Contracts.MarketplaceTransaction,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteTransactionsAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteTransactionsAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetTransactions2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetTransactions2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetTransactionsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetTransactionsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetModsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetModsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutModsAsync(StrangeCloud.Service.Client.Contracts.StrangeMod,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.PutModsAsync(StrangeCloud.Service.Client.Contracts.StrangeMod,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteModsAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.DeleteModsAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetMods2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetMods2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetModsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Client.GetModsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.GetReleaseFileFromS3Async(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.GetReleaseFileFromS3Async(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.GetStagingReleaseFileFromS3Async(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.GetStagingReleaseFileFromS3Async(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.GetVersionsFromDbAsync">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.GetVersionsFromDbAsync(System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.AddBuildAsync(StrangeCloud.Service.Client.Contracts.GameVersion)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.AwsS3Client.AddBuildAsync(StrangeCloud.Service.Client.Contracts.GameVersion,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAdminClient.UploadSteamKeysAsync(StrangeCloud.Service.Client.Contracts.FileParameter,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAdminClient.UploadSteamKeysAsync(StrangeCloud.Service.Client.Contracts.FileParameter,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAdminClient.GetUnusedSteamKeysCountAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAdminClient.GetUnusedSteamKeysCountAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.AuthenticateUserFromAdminAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.Nullable{System.Guid},System.String)">
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.AuthenticateUserFromAdminAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.AuthenticateSLGUserAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.String)">
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.AuthenticateSLGUserAsync(StrangeCloud.Service.Client.Contracts.AuthenticateSlgUser,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authenticates a strange user using their username and password. Username case insensitive, password case sensitive.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.AuthenticateSteamUserAsync(System.String,System.String)">
+            <summary>
+            Authenticates a Steam user using their steam ticket and returning the linked user, creating a new user if required.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.AuthenticateSteamUserAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authenticates a Steam user using their steam ticket and returning the linked user, creating a new user if required.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.RefreshTokenAsync(System.String,System.String)">
+            <summary>
+            Deprecated. Used for backward compatibility.
+            <br/>Try to re-authenticate a user using their refresh token. Returns 403 if invalid.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.RefreshTokenAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Deprecated. Used for backward compatibility.
+            <br/>Try to re-authenticate a user using their refresh token. Returns 403 if invalid.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.GenerateAuthTokenAsync(System.String)">
+            <summary>
+            Get user login token which can be used to login as that user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.GenerateAuthTokenAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Get user login token which can be used to login as that user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.RevokeAllTokensAsync(System.String)">
+            <summary>
+            Invalidate all given auth tokens.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.RevokeAllTokensAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Invalidate all given auth tokens.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.GetWorldTicketAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.GetWorldTicketAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.VerifyWorldTicketAsync(System.String,System.Nullable{System.Guid},System.String)">
+            <summary>
+            Verifies a privately signed JWT token instance.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.VerifyWorldTicketAsync(System.String,System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Verifies a privately signed JWT token instance.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.GetUserAuthTokenAsync(System.Nullable{System.Guid},System.String)">
+            <summary>
+            Allows an admin to retrieve a login token for a given user for testing purposes..
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAuthenticationClient.GetUserAuthTokenAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Allows an admin to retrieve a login token for a given user for testing purposes..
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.ClearAllFlagsAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.ClearAllFlagsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.FlagReportAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.FlagReportAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.FlagSelfAsync(System.Nullable{System.Guid},System.String,System.Nullable{System.Boolean},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.FlagSelfAsync(System.Nullable{System.Guid},System.String,System.Nullable{System.Boolean},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.FlagServerAsync(System.String,System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IFlagsClient.FlagServerAsync(System.String,System.String,System.Nullable{System.Boolean},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.GrantInvitesAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.GrantInvitesAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.GetInvitesAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.GetInvitesAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.RedeemInviteAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.RedeemInviteAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.RemoveInviteAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.RemoveInviteAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.RemoveInvitesByCountAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.RemoveInvitesByCountAsync(System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.BuyInvitesWithCreditsAsync(System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IInvitesClient.BuyInvitesWithCreditsAsync(System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.GetMarketplaceItemsAsync(System.String)">
+            <summary>
+            Returns all marketplace items in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.GetMarketplaceItemsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns all marketplace items in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.GetGlobalDataAsync(System.String)">
+            <summary>
+            Returns the global data stored in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.GetGlobalDataAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the global data stored in the database
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.PutStoreItemsAdminAsync(System.String,System.String)">
+            <summary>
+            Assign the store data from a csv copy-pasted in, sent as text/plain content type. Must include first row of header names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.PutStoreItemsAdminAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Assign the store data from a csv copy-pasted in, sent as text/plain content type. Must include first row of header names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.BuyAsAdminAsync(System.String,System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.BuyAsAdminAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.TransferCreditsAsync(System.Nullable{System.Guid},System.Nullable{System.Single},System.String)">
+            <summary>
+            Perform a direct transfer between parties, splitting X% along standard division pattern.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.TransferCreditsAsync(System.Nullable{System.Guid},System.Nullable{System.Single},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Perform a direct transfer between parties, splitting X% along standard division pattern.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.StartStorePurchaseAsync(System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Purchases the given marketplace item, with a multiplier if they want to by multiple of that pack (since marketplaceitem contains a quantity).
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.StartStorePurchaseAsync(System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Purchases the given marketplace item, with a multiplier if they want to by multiple of that pack (since marketplaceitem contains a quantity).
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.CompleteStorePurchaseAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.CompleteStorePurchaseAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.RegisterItemsAsync(System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.MarketplaceItemRegistration},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.RegisterItemsAsync(System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.MarketplaceItemRegistration},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.BuyThirdPartyHostingAsync(System.Nullable{System.Int32},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IMarketplaceClient.BuyThirdPartyHostingAsync(System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IPasswordResetClient.RequestResetAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IPasswordResetClient.RequestResetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IPasswordResetClient.ResetPasswordAsync(StrangeCloud.Service.Client.Contracts.UsertokenAndPassword,System.String)">
+            <summary>
+            Reset the password, also verifies email address.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IPasswordResetClient.ResetPasswordAsync(StrangeCloud.Service.Client.Contracts.UsertokenAndPassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Reset the password, also verifies email address.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IPasswordResetClient.AdminChangePasswordAsync(StrangeCloud.Service.Client.Contracts.AdminChangePassword,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IPasswordResetClient.AdminChangePasswordAsync(StrangeCloud.Service.Client.Contracts.AdminChangePassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.SetUsernameAndPasswordAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String)">
+            <summary>
+            Can be called by users who have only logged in via steam
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.SetUsernameAndPasswordAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Can be called by users who have only logged in via steam
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.RegisterUserAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String)">
+            <summary>
+            Register a new user and authenticates them.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.RegisterUserAsync(StrangeCloud.Service.Client.Contracts.UsernameOrEmailAndPassword,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Register a new user and authenticates them.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.RequestVerifyEmailAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.RequestVerifyEmailAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.VerifyEmailAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.VerifyEmailAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.RegisterWithSteamAsync(System.String,System.String)">
+            <summary>
+            Authorize a user with Steam OpenID.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IRegistrationClient.RegisterWithSteamAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Authorize a user with Steam OpenID.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.SetAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String)">
+            <summary>
+            Set an existing or new user as the passed value.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.SetAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Set an existing or new user as the passed value.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetAccountAsync(System.String)">
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetAccountAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.SetAvatarDataAsync(System.String,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.SetAvatarDataAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetUserSteamStatusAsync(System.String)">
+            <summary>
+            Returns the current authed user's status in steam (trusted, locked or normal). Value can be any in SteamUserStatus enum.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetUserSteamStatusAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the current authed user's status in steam (trusted, locked or normal). Value can be any in SteamUserStatus enum.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.ClearNotificationsAsync(System.String)">
+            <summary>
+            Clear the user notifications.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.ClearNotificationsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Clear the user notifications.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetTransactionSummariesAsync(System.String)">
+            <summary>
+            DEPRECATED. Returns transaction summarys.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetTransactionSummariesAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            DEPRECATED. Returns transaction summarys.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetAllTransactionSummariesAsync(System.String)">
+            <summary>
+            DEPRECATED. Admin-only endpoint for querying a sum of all transactions for a given date range.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GetAllTransactionSummariesAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            DEPRECATED. Admin-only endpoint for querying a sum of all transactions for a given date range.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GrantAchievementsAsync(System.Nullable{System.Guid},System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.StrangeAchievement},System.String)">
+            <summary>
+            Grant a list of achievements to a given user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GrantAchievementsAsync(System.Nullable{System.Guid},System.Collections.Generic.IEnumerable{StrangeCloud.Service.Client.Contracts.StrangeAchievement},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Grant a list of achievements to a given user.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GrantAchievementAsync(System.Nullable{System.Guid},StrangeCloud.Service.Client.Contracts.StrangeAchievement,System.String)">
+            <summary>
+            Grants an achievement to the user with the given name and description.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.GrantAchievementAsync(System.Nullable{System.Guid},StrangeCloud.Service.Client.Contracts.StrangeAchievement,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Grants an achievement to the user with the given name and description.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.TwitchCallbackAsync(System.String,System.String)">
+            <summary>
+            Twitch callback endpoint to handle fetching twitch information.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.TwitchCallbackAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Twitch callback endpoint to handle fetching twitch information.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.HeartbeatAsync(System.Nullable{System.Guid},System.String)">
+            <summary>
+            Called during gameplay to say they are online at the given server, every 10 minutes.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.HeartbeatAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Called during gameplay to say they are online at the given server, every 10 minutes.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.AddSteamToSlgUserAsync(System.String,System.String)">
+            <summary>
+            Adds a steam account to the user. If the user owns Eco, it will attempt to grant them a key on steam.
+            </summary>
+            <param name="token">The Access token provided by steam after redirect to be used to redeem a key and check steam information</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IUserAccountClient.AddSteamToSlgUserAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Adds a steam account to the user. If the user owns Eco, it will attempt to grant them a key on steam.
+            </summary>
+            <param name="token">The Access token provided by steam after redirect to be used to redeem a key and check steam information</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IVoiceClient.VivoxLoginTokenAsync(System.String,System.String)">
+            <summary>
+            Generate the Vivox login auth token.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IVoiceClient.VivoxLoginTokenAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Generate the Vivox login auth token.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IVoiceClient.VivoxJoinChannelTokenAsync(System.String,System.String,System.String)">
+            <summary>
+            Join the given Vivox channel by channel name.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IVoiceClient.VivoxJoinChannelTokenAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Join the given Vivox channel by channel name.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.GetWorldAsync(System.Nullable{System.Guid},System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.GetWorldAsync(System.Nullable{System.Guid},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.GetActiveWorldsAsync(System.String)">
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.  Caches every 60 seconds, and returns a compressed list of StrangeCloudWorldData.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.GetActiveWorldsAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns the user account of the given user, stripping sensitive data.  Caches every 60 seconds, and returns a compressed list of StrangeCloudWorldData.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.QuickUpdateAsync(System.Guid,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Trigger an update to keep the server alive, without updating any other info.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.QuickUpdateAsync(System.Guid,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Trigger an update to keep the server alive, without updating any other info.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.ServerHeartbeatAsync(StrangeCloud.Service.Client.Contracts.ServerHeartbeatData,System.String)">
+            <summary>
+            Register or update a server.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.ServerHeartbeatAsync(StrangeCloud.Service.Client.Contracts.ServerHeartbeatData,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Register or update a server.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.GetModsAsync(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Returns any mods in the db matching the given names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.GetModsAsync(System.Collections.Generic.IEnumerable{System.String},System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Returns any mods in the db matching the given names.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.AddOrUpdateAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String)">
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IWorldsClient.AddOrUpdateAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>
+            Registers or updates the given world, on the given port.
+            </summary>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IXsollaClient.GeneratePaymentTokenAsync(StrangeCloud.Service.Client.Contracts.PaymentRequest,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IXsollaClient.GeneratePaymentTokenAsync(StrangeCloud.Service.Client.Contracts.PaymentRequest,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IXsollaClient.HandleWebhookAsync(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IXsollaClient.HandleWebhookAsync(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetUserAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetUserAccountAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutUserAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutUserAccountAsync(StrangeCloud.Service.Client.Contracts.StrangeUser,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteUserAccountAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteUserAccountAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetUserAccount2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetUserAccount2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetUserAccountSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetUserAccountSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetWorldsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetWorldsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutWorldsAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutWorldsAsync(StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteWorldsAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteWorldsAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetWorlds2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetWorlds2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetWorldsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetWorldsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetTransactionsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetTransactionsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutTransactionsAsync(StrangeCloud.Service.Client.Contracts.MarketplaceTransaction,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutTransactionsAsync(StrangeCloud.Service.Client.Contracts.MarketplaceTransaction,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteTransactionsAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteTransactionsAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetTransactions2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetTransactions2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetTransactionsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetTransactionsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetModsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetModsAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutModsAsync(StrangeCloud.Service.Client.Contracts.StrangeMod,System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.PutModsAsync(StrangeCloud.Service.Client.Contracts.StrangeMod,System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteModsAsync(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.DeleteModsAsync(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetMods2Async(System.Guid)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetMods2Async(System.Guid,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetModsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean})">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IClient.GetModsSearchAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Boolean},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.GetReleaseFileFromS3Async(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.GetReleaseFileFromS3Async(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.GetStagingReleaseFileFromS3Async(System.String)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.GetStagingReleaseFileFromS3Async(System.String,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.GetVersionsFromDbAsync">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.GetVersionsFromDbAsync(System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.AddBuildAsync(StrangeCloud.Service.Client.Contracts.GameVersion)">
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.Contracts.IAwsS3Client.AddBuildAsync(StrangeCloud.Service.Client.Contracts.GameVersion,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <exception cref="T:StrangeCloud.Service.Client.Contracts.StrangeApiException">A server side error occurred.</exception>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.StrangeApiError">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.StrangeUser">
+            <summary>
+            A user stored in the StrangeCloud.
+            </summary>
+        </member>
+        <member name="P:StrangeCloud.Service.Client.Contracts.StrangeUser.SumHostedUsersTime">
+            <summary>
+            Sum of all time played on all servers hosted by this user.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.DailySummary">
+            <summary>
+            Stores a summary of the amount of eco credits collected in tax each day on each world.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.VoiceLoginTokenResult">
+            <summary>
+            Vivox login result, and info needed for vivox client
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.VoiceTokenResult">
+            <summary>
+            Result for any vivox request. (StrangeCloud responce)
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.VoiceJoinTokenResult">
+            <summary>
+            Response for channel join request
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.StrangeWorldCloudData">
+            <summary>
+            Info stored about a server in the cloud stroage db
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response2">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response3">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response4">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response5">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response6">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response7">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response8">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response9">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response10">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response11">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response12">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response13">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response14">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response15">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response16">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response17">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response18">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response19">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response20">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response21">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response22">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response23">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response24">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response25">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response26">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response27">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response28">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response29">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response30">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response31">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response32">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response33">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response34">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response35">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response36">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response37">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response38">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response39">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response40">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response41">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response42">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response43">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response44">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response45">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response46">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response47">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response48">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response49">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response50">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response51">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response52">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response53">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response54">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response55">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response56">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response57">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response58">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response59">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response60">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response61">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response62">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response63">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response64">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response65">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response66">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response67">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response68">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response69">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response70">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response71">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response72">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response73">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response74">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response75">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response76">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response77">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response78">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response79">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response80">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response81">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response82">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response83">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.Contracts.Response84">
+            <summary>
+            Common result model for all Strange cloud api responses.
+            </summary>
+        </member>
+        <member name="T:StrangeCloud.Service.Client.StrangeCloudInterface">
+            <summary>Interface for interacting with Strange Cloud services.</summary>
+        </member>
+        <member name="P:StrangeCloud.Service.Client.StrangeCloudInterface.StrangeUser">
+            <summary>The user account stored in the cloud. If null, we're playing in offline mode. Can also be offline but filled with cached user.</summary>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.StrangeCloudInterface.UpdateUser">
+            <summary>Update the calling user and return it.</summary>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.StrangeCloudInterface.Authenticate(System.String,System.String)">
+            <summary>Authenticate with a username and password and store the bearer token and user data</summary>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.StrangeCloudInterface.AuthenticateSteam(System.String)">
+            <summary>Authenticate with steam and store the bearer token and user data.</summary>
+            <returns>Error on failure and empty string on success.</returns>
+        </member>
+        <member name="M:StrangeCloud.Service.Client.StrangeCloudInterface.TryAuthenticateWithToken(System.String)">
+            <summary>Try to authenticate using a user login token.</summary>
+            <returns>False if token is not valid.</returns>
+        </member>
+    </members>
+</doc>

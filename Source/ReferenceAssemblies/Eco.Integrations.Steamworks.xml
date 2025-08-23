@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eco.Integrations.Steamworks</name>
+    </assembly>
+    <members>
+        <member name="T:Eco.Integrations.Steamworks.ServerSteamworks">
+            <summary>
+            Responsible for interacting with Steam API through Steamworks .NET.
+            Always use this class instead of using Steamworks .NET library directly.
+            </summary>
+            <remarks>
+            This plugin is only loaded in offline mode, when Strange Cloud servers can't be reached.
+            Allways check for null when accessing this plugin's instance.
+            </remarks>
+        </member>
+        <member name="P:Eco.Integrations.Steamworks.ServerSteamworks.Connected">
+            <summary>True if Steam API is initialized and server managed to connect to Steam servers.</summary>
+        </member>
+        <member name="F:Eco.Integrations.Steamworks.ServerSteamworks.lastConnectionAttemptResult">
+            <summary>
+            This field contains one of the following:                                        <br></br>
+            - <see cref="F:Steamworks.EResult.k_EResultNone"/> if no connection attempt was finifhed yet. <br></br>
+            - <see cref="F:Steamworks.EResult.k_EResultOK"/> if last connection attempt was a success.    <br></br>
+            - The reason why last connection attempt failed in all other cases.
+            </summary>
+        </member>
+        <member name="F:Eco.Integrations.Steamworks.ServerSteamworks.logInCompletion">
+            <summary>Result on this is set when log in process is finished.</summary>
+        </member>
+        <member name="F:Eco.Integrations.Steamworks.ServerSteamworks.beginAuthSessionRequests">
+            <summary>All requests to begin auth session for a user that are waiting to be completed.</summary>
+            <remarks>Key is user's Steam ID and value is a task completion source where result needs to be set once request is completed.</remarks>
+        </member>
+        <member name="F:Eco.Integrations.Steamworks.ServerSteamworks.authSessionEndCallbacks">
+            <summary>Delegates that will be called when an auth session for a user with given Steam ID ends.</summary>
+            <remarks>Argument passed to the callback is a localized string explaining why their session has ended.</remarks>
+        </member>
+        <member name="F:Eco.Integrations.Steamworks.ServerSteamworks.callbacks">
+            <summary>Each registered <see cref="T:Steamworks.Callback`1"/> is stored here to prevent it from being garbage collected.</summary>
+        </member>
+        <member name="F:Eco.Integrations.Steamworks.ServerSteamworks.callbackWorker">
+            <summary>Worker that periodically dispatches callbacks for Steam API call responses received from Steam servers.</summary>
+        </member>
+        <member name="M:Eco.Integrations.Steamworks.ServerSteamworks.#ctor(System.Int32,System.UInt16)">
+            <param name="rate">Rate at which callbacks for API call responses received from Steam servers will be dispatched in Hz.</param>
+            <param name="steamPort">Port used to communicate with Steam servers.</param>
+        </member>
+        <member name="M:Eco.Integrations.Steamworks.ServerSteamworks.OnSteamServerConectionStatusChanged(Steamworks.EResult)">
+            <summary>Handles updates to status of connection to Steam servers.</summary>
+            <param name="result">Enum that allows us to determine how the status changed and why.</param>
+        </member>
+        <member name="M:Eco.Integrations.Steamworks.ServerSteamworks.TryBeginAuthSessionAsync(System.Byte[],System.UInt64,System.Action{Eco.Shared.Localization.LocString})">
+            <summary>Begins auth session using an auth session ticket received from a client.</summary>
+            <param name="ticket">Auth session ticket received from a client.</param>
+            <param name="steamId">Steam ID of the user who generated the ticket.</param>
+            <param name="onAuthSessionEnded">Delegate that will be called when auth session is ended by the user.</param>
+            <returns>True and empty string on success or false and an error message on failure.</returns>
+            <remarks>This method is guaranteed to not thorw any exceptions and to not cause caller to await forever.</remarks>
+        </member>
+        <member name="M:Eco.Integrations.Steamworks.ServerSteamworks.EndAuthSession(System.UInt64)">
+            <summary>Ends auth session for a user with given Steam ID.</summary>
+            <remarks>This has to be called when a user disconnects from the server if that user authenticated using Steam.</remarks>
+        </member>
+        <member name="M:Eco.Integrations.Steamworks.ServerSteamworks.Censor(System.String)">
+            <summary>Censors text based on steamworks filter.</summary>
+        </member>
+        <member name="M:Eco.Integrations.Steamworks.ServerSteamworks.GetEAuthSessionResponseDescription(Steamworks.ValidateAuthTicketResponse_t)">
+            <inheritdoc cref="M:Eco.Integrations.Steamworks.ServerSteamworks.GetEAuthSessionResponseDescription(Steamworks.EAuthSessionResponse)"/>
+        </member>
+        <member name="M:Eco.Integrations.Steamworks.ServerSteamworks.GetEAuthSessionResponseDescription(Steamworks.EAuthSessionResponse)">
+            <summary>Get a description explaining auth session response in a user friendly format.</summary>
+        </member>
+    </members>
+</doc>
