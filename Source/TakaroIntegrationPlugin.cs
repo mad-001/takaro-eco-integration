@@ -94,7 +94,7 @@ namespace Eco.Takaro
                         catch { }
                         
                         // Create new file with instance ID for isolation
-                        string fileName = $"{now:MM-dd-HH}-{instanceId}.log";
+                        string fileName = $"{now:MM-dd-hh}.log";
                         string filePath = Path.Combine(logDirectory, fileName);
                         
                         try
@@ -263,8 +263,33 @@ namespace Eco.Takaro
                 {
                     logger?.Write($"[CHAT DEBUG] Processing chat from {chatMessage.Sender.Name}: {chatMessage.Text}");
                     
-                    await takaroClient.SendChatEventAsync(chatMessage.Sender, chatMessage.Text);
-                    logger?.Write($"[CHAT DEBUG] Chat event sent to Takaro successfully");
+                    // Check if message is a command (starts with configured prefix)
+                    string commandPrefix = takaroClient?.GetCommandPrefix() ?? "!";
+                    bool isCommand = chatMessage.Text.StartsWith(commandPrefix);
+                    
+                    // Send to Takaro regardless (commands and regular chat)
+                    await takaroClient.SendChatEventAsync(chatMessage.Sender, chatMessage.Text, isCommand, chatMessage);
+                    
+                    if (isCommand)
+                    {
+                        logger?.Write($"[COMMAND] Command with prefix '{commandPrefix}' sent to Takaro: {chatMessage.Text}");
+                        
+                        // Remove the command from chat display
+                        try
+                        {
+                            // Use ChatManager.Obj to access the instance
+                            ChatManager.Obj.RemoveMessages(msg => msg.Sender == chatMessage.Sender && msg.Text == chatMessage.Text);
+                            logger?.Write($"[COMMAND] Removed command from chat display");
+                        }
+                        catch (Exception removeEx)
+                        {
+                            logger?.WriteWarning($"[COMMAND] Could not remove command from chat: {removeEx.Message}");
+                        }
+                    }
+                    else
+                    {
+                        logger?.Write($"[CHAT DEBUG] Chat event sent to Takaro successfully");
+                    }
                 }
             }
             catch (Exception ex)
@@ -291,6 +316,7 @@ namespace Eco.Takaro
         private string gameServerId;
         private string serverName;
         private string websocketUrl;
+        private string commandPrefix = "!"; // Default command prefix
         private int currentPlayerCount = 0;
         private readonly string instanceId;
         
@@ -328,6 +354,12 @@ namespace Eco.Takaro
                     registrationToken = config.GetProperty("registrationToken").GetString();
                     serverName = config.GetProperty("serverName").GetString();
                     websocketUrl = config.GetProperty("websocketUrl").GetString();
+                    
+                    // commandPrefix is optional, defaults to "!"
+                    if (config.TryGetProperty("commandPrefix", out var commandPrefixElement))
+                    {
+                        commandPrefix = commandPrefixElement.GetString() ?? "!";
+                    }
                     
                     // gameServerId is optional and returned by Takaro after identification
                     gameServerId = config.TryGetProperty("gameServerId", out var gameServerIdElement) 
@@ -1878,7 +1910,7 @@ namespace Eco.Takaro
             }
         }
 
-        public async Task SendChatEventAsync(User user, string message)
+        public async Task SendChatEventAsync(User user, string message, bool isCommand = false, ChatMessage chatMessage = null)
         {
             if (!IsConnected) return;
 
@@ -1898,7 +1930,7 @@ namespace Eco.Takaro
                                 name = user.Name,
                                 steamId = user.SteamId
                             },
-                            channel = "global",
+                            channel = GetChannelType(chatMessage),
                             msg = message
                         }
                     }
@@ -2315,6 +2347,29 @@ namespace Eco.Takaro
             {
                 logger.WriteWarning($"[{instanceId}] Error during shutdown: {ex.Message}");
             }
+        }
+
+        private string GetChannelType(ChatMessage chatMessage)
+        {
+            if (chatMessage == null)
+                return "global";
+            
+            // Debug logging to understand receiver behavior
+            string receiverInfo = chatMessage.Receiver != null ? $"'{chatMessage.Receiver}'" : "null";
+            logger?.Write($"[CHANNEL DEBUG] Message: '{chatMessage.Text}' | Receiver: {receiverInfo}");
+            
+            // Check for whisper/private message - these have a player as receiver (not a channel)
+            // Global messages have "General" or other channel names as receiver
+            if (chatMessage.Receiver != null && chatMessage.Receiver.ToString() != "General")
+                return "whisper";
+            
+            // Default to global for public messages (receiver is null or "General")
+            return "global";
+        }
+
+        public string GetCommandPrefix()
+        {
+            return commandPrefix;
         }
     }
 }

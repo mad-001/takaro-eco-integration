@@ -2,6 +2,29 @@
 
 All notable changes to the Takaro Integration plugin will be documented in this file.
 
+## [v1.2.0] - 2025-08-24
+
+### 🎯 Chat System Improvements
+- **FIXED**: Private message filtering - PMs no longer appear in Discord
+- **ADDED**: Proper channel type detection using `ChatMessage.Receiver` property
+- **IMPROVED**: Channel classification logic:
+  - Global chat: `Receiver == "General"` → `channel: "global"` → Sent to Discord
+  - Private messages: `Receiver != "General"` → `channel: "whisper"` → Filtered by Takaro hook
+- **ENHANCED**: Command prefix filtering - commands removed from game chat but sent to Takaro
+
+### 🔧 Bug Fixes
+- **FIXED**: Log filename format corrected to `MM-dd-hh.log` (removed instance ID)
+- **RESOLVED**: API validation error caused by invalid `isCommand` field
+- **CORRECTED**: Channel type detection using proper ChatMessage properties
+
+### 🧹 Code Quality  
+- **ADDED**: Debug logging for channel type detection
+- **IMPROVED**: Error handling for chat message processing
+- **ENHANCED**: Message filtering logic with proper receiver analysis
+
+### 🎯 Impact
+This release fixes the critical issue where private messages were being sent to Discord channels. Now only global chat messages reach Discord, while private messages are properly filtered out by the Takaro hook system.
+
 ## [v1.1.0] - 2025-08-23
 
 ### 🔧 Major Stability Fixes
