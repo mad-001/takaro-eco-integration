@@ -4,5 +4,6 @@
   "registrationToken": "REGISTRATION_TOKEN",
   "_registrationToken_help": "In Takaro.io you need an account, click on add a gameserver but do not make a server, copy the registration token.",
   "websocketUrl": "wss://connect.takaro.io/",
-  "enableLogging": false
+  "enableLogging": false,
+  "commandPrefix": "!"
 }
