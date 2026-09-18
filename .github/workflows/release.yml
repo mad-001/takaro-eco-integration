@@ -1,0 +1,95 @@
+# On every push to main: uses the committed TakaroIntegration-v<VERSION>.tar.gz if it
+# exists, otherwise builds the plugin DLL with .NET 8 and packages it the same way.
+# Creates a GitHub release (tag = VERSION) only when that tag does not exist yet.
+# To ship a release: bump VERSION (e.g. v1.3.0) in your PR and merge it.
+name: Build & Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.ver.outputs.tag }}
+      exists: ${{ steps.check.outputs.exists }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read VERSION
+        id: ver
+        run: |
+          v=$(tr -d '[:space:]' < VERSION | sed 's/^[vV]//')
+          echo "tag=v$v" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether tag already exists
+        id: check
+        run: |
+          if git ls-remote --exit-code --tags origin "refs/tags/${{ steps.ver.outputs.tag }}" >/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Use committed tarball if present
+        id: tarball
+        run: |
+          f="TakaroIntegration-${{ steps.ver.outputs.tag }}.tar.gz"
+          if [ -f "$f" ]; then
+            mkdir -p release && cp "$f" release/
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-dotnet@v4
+        if: steps.tarball.outputs.found == 'false'
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build TakaroIntegration.dll
+        if: steps.tarball.outputs.found == 'false'
+        run: dotnet build Source/EcoTakaroMod.csproj -c Release -o build
+
+      - name: Package tarball
+        if: steps.tarball.outputs.found == 'false'
+        run: |
+          d="TakaroIntegration-${{ steps.ver.outputs.tag }}"
+          mkdir -p "stage/$d" release
+          cp TakaroIntegration/README.md TakaroIntegration/TakaroConfig.json "stage/$d/"
+          cp build/TakaroIntegration.dll "stage/$d/"
+          tar -C stage -czf "release/$d.tar.gz" "$d"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: release/
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: needs.build.outputs.exists == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+          path: release
+      - name: Create release ${{ needs.build.outputs.tag }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ needs.build.outputs.tag }}" \
+            --title "${{ needs.build.outputs.tag }}" \
+            --generate-notes \
+            release/*
